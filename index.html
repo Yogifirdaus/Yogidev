@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogi Dev - Jasa Pembuatan Website Profesional, Cepat & Terjangkau</title>
+
+    <!-- Favicon Logo Tab Browser -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#DC2626',
+                        brandRedDark: '#991B1B',
+                        brandGold: '#F59E0B',
+                        brandGoldDark: '#D97706',
+                        darkBg: '#0F172A',
+                        darkCard: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0B0F17;
+            color: #F3F4F6;
+        }
+
+        /* Gold Gradient Text & Elements */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+
+        .bg-red-gradient {
+            background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
+        }
+
+        .border-gold-glow {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+        }
+
+        .border-red-glow {
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+        }
+
+        /* Pulse glow animation for preloader */
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6));
+            }
+            50% {
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.8));
+            }
+        }
+
+        .animate-logo-pulse {
+            animation: logoPulse 1.8s infinite ease-in-out;
+        }
+
+        /* Fade Out for Preloader */
+        .preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        /* Hide Scrollbar for sleek look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-[#0B0F17] text-gray-100 antialiased selection:bg-brandRed selection:text-white">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#070A0F] transition-all duration-500">
+        <div class="relative flex items-center justify-center">
+            <!-- Glowing background ring -->
+            <div class="absolute w-40 h-40 rounded-full bg-gradient-to-r from-brandRed via-brandGold to-brandRed opacity-30 blur-xl animate-pulse"></div>
+            <!-- Logo Image -->
+            <img src="logo.png" alt="Yogi Dev Logo" class="w-32 h-32 object-contain relative z-10 animate-logo-pulse" onerror="this.src='https://placehold.co/150x150/1E293B/F59E0B?text=Yogi+Dev'">
+        </div>
+        <div class="mt-6 flex flex-col items-center">
+            <h2 class="text-xl font-bold tracking-widest text-white">YOGI <span class="text-brandGold">DEV</span></h2>
+            <p class="text-xs text-gray-400 mt-1 animate-pulse">Memuat Pengalaman Digital Terbaik...</p>
+            <!-- Progress Bar Line -->
+            <div class="w-48 h-1 bg-gray-800 rounded-full mt-4 overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-brandRed to-brandGold animate-pulse w-full"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER & NAVBAR -->
+    <header class="sticky top-0 z-50 bg-[#0B0F17]/90 backdrop-blur-md border-b border-gray-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <img src="logo.png" alt="Yogi Dev Logo" class="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110" onerror="this.src='https://placehold.co/100x100/1E293B/F59E0B?text=YD'">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-wider text-white">YOGI<span class="text-brandGold">DEV</span></span>
+                        <span class="text-[10px] text-gray-400 tracking-widest uppercase -mt-1">Web Solution</span>
+                    </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-medium">
+                    <a href="#home" class="text-gray-300 hover:text-brandGold transition-colors">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-brandGold transition-colors">Tentang Kami</a>
+                    <a href="#advantages" class="text-gray-300 hover:text-brandGold transition-colors">Keunggulan</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-brandGold transition-colors">Portofolio</a>
+                    <a href="#technology" class="text-gray-300 hover:text-brandGold transition-colors">Teknologi</a>
+                    <a href="#reviews" class="text-gray-300 hover:text-brandGold transition-colors">Ulasan</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-brandGold transition-colors">Harga & Paket</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20ingin%20konsultasi%20pembuatan%20website" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brandRed to-red-700 text-white font-semibold text-sm hover:from-red-600 hover:to-brandRed transition-all duration-300 shadow-lg shadow-red-900/30 border border-red-500/30 flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Konsultasi Gratis</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0F172A] border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Home</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Tentang Kami</a>
+            <a href="#advantages" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Keunggulan</a>
+            <a href="#portfolio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Portofolio</a>
+            <a href="#technology" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Teknologi</a>
+            <a href="#reviews" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Ulasan</a>
+            <a href="#pricing" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Harga & Paket</a>
+            <div class="pt-2">
+                <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20ingin%20konsultasi%20pembuatan%20website" target="_blank" class="w-full justify-center px-5 py-3 rounded-xl bg-gradient-to-r from-brandRed to-red-700 text-white font-semibold text-center flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Konsultasi WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION 1: HOME / HERO SECTION WITH TEXT CAROUSEL -->
+        <section id="home" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+            <!-- Decorative Glow Backgrounds -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brandRed/15 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-brandGold/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <!-- BACKGROUND TECH IMAGE CAROUSEL (Dibelakang Carousel Tulisan) -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div id="hero-bg-carousel" class="relative w-full h-full">
+                    <!-- Image Slide 1 (Coding & Modern Tech Workspace) -->
+                    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80" alt="Tech Background 1" class="w-full h-full object-cover opacity-25 scale-105">
+                    </div>
+                    <!-- Image Slide 2 (Digital Network & Server Tech) -->
+                    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Tech Background 2" class="w-full h-full object-cover opacity-25 scale-105">
+                    </div>
+                    <!-- Image Slide 3 (Modern Web Development Laptop) -->
+                    <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1600&q=80" alt="Tech Background 3" class="w-full h-full object-cover opacity-25 scale-105">
+                    </div>
+                </div>
+                <!-- Dark Gradient Overlay for Maximum Text Contrast -->
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0B0F17]/90 via-[#0B0F17]/80 to-[#0B0F17]"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/80 border border-gray-700/60 mb-6">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brandGold animate-ping"></span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brandGold">Jasa Web Developer Terpercaya</span>
+                    </div>
+
+                    <!-- HERO CAROUSEL TEXT SLIDER -->
+                    <div id="hero-carousel" class="grid grid-cols-1 items-center justify-center text-center">
+                        <!-- Slide 1 -->
+                        <div class="hero-slide col-start-1 row-start-1 transition-all duration-700 opacity-100 translate-y-0 flex flex-col justify-center items-center">
+                            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white leading-snug sm:leading-tight">
+                                Solusi Website <span class="text-gold-gradient drop-shadow-sm">Profesional & Modern</span> Untuk Bisnis Anda
+                            </h1>
+                            <p class="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
+                                Tingkatkan reputasi & penjualan bisnis Anda dengan tampilan web yang elegan, super cepat, serta responsif di semua layar perangkat.
+                            </p>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="hero-slide col-start-1 row-start-1 transition-all duration-700 opacity-0 translate-y-4 flex flex-col justify-center items-center pointer-events-none">
+                            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white leading-snug sm:leading-tight">
+                                Pembuatan Website <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-amber-300">Mudah, Praktis & Cepat</span>
+                            </h1>
+                            <p class="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
+                                Cukup kirimkan konsep & materi Anda, tim <span class="text-brandGold font-semibold">Yogi Dev</span> siap mengurus semua teknis hingga website tayang!
+                            </p>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="hero-slide col-start-1 row-start-1 transition-all duration-700 opacity-0 translate-y-4 flex flex-col justify-center items-center pointer-events-none">
+                            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white leading-snug sm:leading-tight">
+                                Kualitas Terbaik Dengan <span class="text-gold-gradient drop-shadow-sm">Harga Paling Terjangkau</span>
+                            </h1>
+                            <p class="mt-3 text-sm sm:text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
+                                Dari UMKM, Toko Online, hingga Perusahaan—dapatkan layanan pembuatan web berkualitas tinggi dengan biaya hemat tanpa ribet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hero Slide Dots -->
+                    <div class="flex justify-center gap-2 mt-8">
+                        <button class="hero-dot w-8 h-2 rounded-full bg-brandGold transition-all duration-300" onclick="setHeroSlide(0)"></button>
+                        <button class="hero-dot w-2 h-2 rounded-full bg-gray-600 transition-all duration-300" onclick="setHeroSlide(1)"></button>
+                        <button class="hero-dot w-2 h-2 rounded-full bg-gray-600 transition-all duration-300" onclick="setHeroSlide(2)"></button>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20ingin%20membuat%20website" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brandRed via-red-600 to-brandRed hover:from-red-600 hover:to-red-700 text-white font-bold text-base shadow-xl shadow-red-900/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                            <i class="fas fa-rocket"></i>
+                            <span>Buat Website Sekarang</span>
+                        </a>
+                        <a href="#pricing" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gray-800/80 hover:bg-gray-700/80 text-white font-semibold text-base border border-gray-700 transition-all duration-300 text-center">
+                            Lihat Paket Harga
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights Badges -->
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 backdrop-blur">
+                        <i class="fas fa-bolt text-2xl text-brandGold mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">Super Cepat</h4>
+                        <p class="text-xs text-gray-400">Loading < 2 Detik</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 backdrop-blur">
+                        <i class="fas fa-mobile-alt text-2xl text-brandRed mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">100% Responsif</h4>
+                        <p class="text-xs text-gray-400">Mobile & Desktop</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 backdrop-blur">
+                        <i class="fas fa-shield-alt text-2xl text-brandGold mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">Aman & Terpercaya</h4>
+                        <p class="text-xs text-gray-400">Gratis SSL Security</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 backdrop-blur">
+                        <i class="fas fa-tags text-2xl text-brandRed mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">Harga Murah</h4>
+                        <p class="text-xs text-gray-400">Tanpa Biaya Tersembunyi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ABOUT / TENTANG KAMI -->
+        <section id="about" class="py-20 bg-gray-900/50 border-y border-gray-800 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Graphic / Logo Showcase Card -->
+                    <div class="relative">
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brandRed via-brandGold to-brandRed opacity-30 blur-lg"></div>
+                        <div class="relative rounded-2xl bg-[#0F172A] p-8 border border-gray-800 text-center flex flex-col items-center">
+                            <img src="logo.png" alt="Yogi Dev Logo" class="w-44 h-44 object-contain mb-6 drop-shadow-[0_10px_20px_rgba(245,158,11,0.2)]" onerror="this.src='https://placehold.co/200x200/1E293B/F59E0B?text=Yogi+Dev'">
+                            <h3 class="text-2xl font-bold text-white">Yogi Dev Studio</h3>
+                            <p class="text-sm text-brandGold font-medium mt-1">Professional Web Development & Tech Solutions</p>
+                            
+                            <div class="grid grid-cols-3 gap-4 w-full mt-8 pt-6 border-t border-gray-800 text-center">
+                                <div>
+                                    <span class="block text-2xl font-black text-brandGold">100+</span>
+                                    <span class="text-xs text-gray-400">Proyek Selesai</span>
+                                </div>
+                                <div>
+                                    <span class="block text-2xl font-black text-brandRed">99%</span>
+                                    <span class="text-xs text-gray-400">Klien Puas</span>
+                                </div>
+                                <div>
+                                    <span class="block text-2xl font-black text-white">24/7</span>
+                                    <span class="text-xs text-gray-400">Dukungan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-red-950/80 border border-red-800/50 text-red-400 text-xs font-semibold uppercase">
+                            Tentang Yogi Dev
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                            Mitra Digital Terbaik untuk Mewujudkan <span class="text-gold-gradient">Website Impian Anda</span>
+                        </h2>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            <strong class="text-white">Yogi Dev</strong> adalah penyedia layanan jasa pembuatan website profesional yang berfokus pada kemudahan, kecepatan, dan efisiensi biaya. Kami memahami bahwa di era digital saat ini, keberadaan website yang modern dan kredibel sangat vital bagi kemajuan bisnis maupun brand Anda.
+                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Kami memangkas kerumitan teknis coding agar Anda bisa tetap fokus mengelola bisnis. Dengan perpaduan desain estetis, standar SEO modern, serta optimasi kecepatan tinggi, website Anda tidak hanya tampil menarik tetapi juga menghasilkan konversi penjualan yang optimal.
+                        </p>
+
+                        <!-- Key Pillars -->
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brandGold/20 text-brandGold flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Desain Eksklusif & Elegan</h4>
+                                    <p class="text-xs text-gray-400">Disesuaikan dengan identitas brand dan jenis bisnis Anda.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brandRed/20 text-brandRed flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm">Proses Praktis Tanpa Ribet</h4>
+                                    <p class="text-xs text-gray-400">Konsultasi, penyerahan bahan, pembuatan, dan website langsung terbit!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ADVANTAGES / KEUNGGULAN YOGI DEV -->
+        <section id="advantages" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brandGold text-xs font-bold uppercase tracking-widest">Mengapa Memilih Kami?</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        Keunggulan Pembuatan Website di <span class="text-brandRed">Yogi Dev</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm mt-3">Kami memberikan nilai lebih dari sekadar kode—kami membangun aset digital yang bertumbuh bersama bisnis Anda.</p>
+                </div>
+
+                <!-- Grid Advantages Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="group relative rounded-2xl bg-gradient-to-b from-gray-800/80 to-gray-900/80 p-8 border border-gray-800 hover:border-brandGold/50 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-amber-900/30">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brandGold transition-colors">Desain Profesional</h3>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">Tampilan website kekinian, clean, dan profesional. Dirancang dengan cermat untuk memberikan impresi terbaik kepada pengunjung.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="group relative rounded-2xl bg-gradient-to-b from-gray-800/80 to-gray-900/80 p-8 border border-gray-800 hover:border-brandRed/50 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-red-900/30">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brandRed transition-colors">Proses Sangat Praktis</h3>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">Tidak perlu pusing dengan urusan coding, domain, atau hosting. Cukup siapkan informasi produk, sisanya kami urus.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="group relative rounded-2xl bg-gradient-to-b from-gray-800/80 to-gray-900/80 p-8 border border-gray-800 hover:border-brandGold/50 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-amber-900/30">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brandGold transition-colors">Pengerjaan Super Cepat</h3>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">Proses pengerjaan kilat mulai dari 1-3 hari kerja tanpa mengurangi standar kualitas website Anda.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="group relative rounded-2xl bg-gradient-to-b from-gray-800/80 to-gray-900/80 p-8 border border-gray-800 hover:border-brandRed/50 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-red-900/30">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brandRed transition-colors">Harga Hemat & Murah</h3>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">Paket harga transparan dan sangat terjangkau cocok untuk pebisnis pemula, UMKM, hingga skala bisnis besar.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="group relative rounded-2xl bg-gradient-to-b from-gray-800/80 to-gray-900/80 p-8 border border-gray-800 hover:border-brandGold/50 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-amber-900/30">
+                            <i class="fas fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brandGold transition-colors">Mobile Friendly & Responsive</h3>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">Website otomatis tampil sempurna dan nyaman dibuka melalui Smartphone, Tablet, Laptop, maupun PC.</p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="group relative rounded-2xl bg-gradient-to-b from-gray-800/80 to-gray-900/80 p-8 border border-gray-800 hover:border-brandRed/50 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-red-900/30">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brandRed transition-colors">Dukungan & Maintenance</h3>
+                        <p class="text-gray-400 text-sm mt-3 leading-relaxed">Layanan purna jual lengkap. Kami siap membantu pendampingan teknis dan perawatan rutin berkala.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION BARU: PORTOFOLIO / HASIL KARYA -->
+        <section id="portfolio" class="py-20 bg-gray-900/60 border-t border-gray-800 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brandGold text-xs font-bold uppercase tracking-widest">Karya Terbaik Kami</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        Portofolio <span class="text-brandRed">Website Klien</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm mt-3">Beberapa contoh hasil pembuatan website yang telah dipercayakan kepada tim Yogi Dev.</p>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="group rounded-2xl bg-gray-900 border border-gray-800 overflow-hidden hover:border-brandGold/60 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="E-Commerce Fashion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-xs text-brandGold font-medium">Boutique & Online Store</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-brandRed text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-md shadow">Toko Online</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brandGold transition-colors">Aura Boutique Fashion</h3>
+                            <p class="text-gray-400 text-xs mt-2 leading-relaxed">Website e-commerce katalog baju modern dengan fitur integrasi WhatsApp order otomatis.</p>
+                            <div class="mt-4 pt-4 border-t border-gray-800 flex items-center justify-between">
+                                <span class="text-xs text-gray-500"><i class="fas fa-bolt text-brandGold mr-1"></i> Loading 1.2s</span>
+                                <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20ingin%20lihat%20demo%20Aura%20Boutique" target="_blank" class="text-xs text-brandGold hover:underline font-semibold flex items-center gap-1">
+                                    <span>Tanya Demo</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 2 -->
+                    <div class="group rounded-2xl bg-gray-900 border border-gray-800 overflow-hidden hover:border-brandRed/60 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Company Profile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-xs text-brandGold font-medium">Corporate & Legal</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-amber-500 text-gray-950 text-[10px] font-bold uppercase px-2.5 py-1 rounded-md shadow">Company Profile</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brandRed transition-colors">PT Sinergi Mandiri Utama</h3>
+                            <p class="text-gray-400 text-xs mt-2 leading-relaxed">Website profil perusahaan jasa konstruksi & manufaktur profesional dengan desain berkelas.</p>
+                            <div class="mt-4 pt-4 border-t border-gray-800 flex items-center justify-between">
+                                <span class="text-xs text-gray-500"><i class="fas fa-shield-alt text-brandRed mr-1"></i> SSL Protected</span>
+                                <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20ingin%20lihat%20demo%20PT%20Sinergi" target="_blank" class="text-xs text-brandGold hover:underline font-semibold flex items-center gap-1">
+                                    <span>Tanya Demo</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 3 -->
+                    <div class="group rounded-2xl bg-gray-900 border border-gray-800 overflow-hidden hover:border-brandGold/60 transition-all duration-300 hover:-translate-y-1.5 shadow-lg">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Kuliner / Coffee Shop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <span class="text-xs text-brandGold font-medium">Food & Beverage</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-brandRed text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-md shadow">Landing Page UMKM</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brandGold transition-colors">Kopi Senja Cafe & Roastery</h3>
+                            <p class="text-gray-400 text-xs mt-2 leading-relaxed">Landing page interaktif untuk promosi kafe, daftar menu digital QR-code, dan lokasi Maps.</p>
+                            <div class="mt-4 pt-4 border-t border-gray-800 flex items-center justify-between">
+                                <span class="text-xs text-gray-500"><i class="fas fa-mobile-alt text-brandGold mr-1"></i> Mobile Friendly</span>
+                                <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20ingin%20lihat%20demo%20Kopi%20Senja" target="_blank" class="text-xs text-brandGold hover:underline font-semibold flex items-center gap-1">
+                                    <span>Tanya Demo</span> <i class="fas fa-arrow-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TECHNOLOGY / GALERI & TECH IMAGE CAROUSEL -->
+        <section id="technology" class="py-20 bg-gray-900/40 border-y border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-brandRed font-bold text-xs uppercase tracking-widest">Inovasi & Tampilan</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        Showcase & <span class="text-gold-gradient">Teknologi Modern</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm mt-3">Visualisasi standar kualitas tinggi dalam pembuatan website dan pengembangan UI/UX di Yogi Dev.</p>
+                </div>
+
+                <!-- IMAGE CAROUSEL CONTAINER -->
+                <div class="relative max-w-5xl mx-auto">
+                    <!-- Carousel Slider Outer Wrapper -->
+                    <div class="overflow-hidden rounded-2xl border border-gray-700/80 shadow-2xl relative group">
+                        
+                        <!-- Slides Wrapper -->
+                        <div id="tech-slides-container" class="flex transition-transform duration-500 ease-out w-full">
+                            <!-- Image Slide 1 -->
+                            <div class="w-full shrink-0 relative min-h-[300px] sm:min-h-[450px]">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Coding & Tech" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10">
+                                    <span class="px-3 py-1 bg-brandRed text-white text-xs font-semibold rounded-md w-max mb-2">Modern Architecture</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white">Clean Code & High Performance</h3>
+                                    <p class="text-xs sm:text-sm text-gray-300 mt-1">Menggunakan teknologi terkini untuk kecepatan memuat halaman maksimal.</p>
+                                </div>
+                            </div>
+
+                            <!-- Image Slide 2 -->
+                            <div class="w-full shrink-0 relative min-h-[300px] sm:min-h-[450px]">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Responsive Web Design" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10">
+                                    <span class="px-3 py-1 bg-brandGold text-black text-xs font-bold rounded-md w-max mb-2">Responsive UI/UX</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white">Desain Adaptif & Elegan</h3>
+                                    <p class="text-xs sm:text-sm text-gray-300 mt-1">Pengalaman navigasi nyaman di berbagai perangkat telepon pintar dan desktop.</p>
+                                </div>
+                            </div>
+
+                            <!-- Image Slide 3 -->
+                            <div class="w-full shrink-0 relative min-h-[300px] sm:min-h-[450px]">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="E-Commerce & Business" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10">
+                                    <span class="px-3 py-1 bg-brandRed text-white text-xs font-semibold rounded-md w-max mb-2">High Conversion</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white">Fokus Pada Pertumbuhan Bisnis</h3>
+                                    <p class="text-xs sm:text-sm text-gray-300 mt-1">Tata letak strategis yang mendorong pengunjung menjadi pembeli setia.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prev & Next Buttons -->
+                        <button id="prev-tech-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brandRed text-white flex items-center justify-center backdrop-blur transition-all duration-300 border border-gray-600 hover:border-red-500">
+                            <i class="fas fa-chevron-left text-lg"></i>
+                        </button>
+                        <button id="next-tech-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-brandRed text-white flex items-center justify-center backdrop-blur transition-all duration-300 border border-gray-600 hover:border-red-500">
+                            <i class="fas fa-chevron-right text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Tech Dots Navigation -->
+                    <div class="flex justify-center gap-3 mt-6">
+                        <button class="tech-dot w-3 h-3 rounded-full bg-brandGold transition-all duration-300" onclick="goToTechSlide(0)"></button>
+                        <button class="tech-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300" onclick="goToTechSlide(1)"></button>
+                        <button class="tech-dot w-3 h-3 rounded-full bg-gray-600 transition-all duration-300" onclick="goToTechSlide(2)"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION BARU: ULASAN / TESTIMONI KLIEN -->
+        <section id="reviews" class="py-20 bg-[#0B0F17] relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Header -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brandRed text-xs font-bold uppercase tracking-widest">Kepuasan Pelanggan</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        Ulasan & <span class="text-gold-gradient">Testimoni Klien</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm mt-3">Pendapat asli dari para pemilik bisnis yang menggunakan layanan Yogi Dev.</p>
+                </div>
+
+                <!-- Testimonial Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review Card 1 -->
+                    <div class="rounded-2xl bg-gray-900/90 border border-gray-800 p-8 flex flex-col justify-between relative hover:border-brandGold/40 transition-all">
+                        <div>
+                            <!-- Stars -->
+                            <div class="flex text-brandGold gap-1 text-sm mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed italic">
+                                "Pengerjaannya cepat banget! Halaman landing page saya selesai hanya dalam 2 hari. Desainnya modern, responsif di HP, dan omset toko saya naik setelah pakai website baru ini."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Rina S." class="w-12 h-12 rounded-full object-cover border-2 border-brandGold">
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Rina Sulistia</h4>
+                                <span class="text-xs text-gray-400 block">Owner Aura Boutique</span>
+                                <span class="inline-flex items-center gap-1 text-[10px] text-green-400 mt-1"><i class="fas fa-check-circle"></i> Terverifikasi Klien Yogi Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 2 -->
+                    <div class="rounded-2xl bg-gray-900/90 border border-gray-800 p-8 flex flex-col justify-between relative hover:border-brandRed/40 transition-all">
+                        <div>
+                            <!-- Stars -->
+                            <div class="flex text-brandGold gap-1 text-sm mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed italic">
+                                "Sangat praktis! Saya tidak faham soal domain dan hosting, tapi mas Yogi mengurus semuanya sampai beres. Harganya juga sangat bersahabat untuk skala perusahaan baru."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Budi H." class="w-12 h-12 rounded-full object-cover border-2 border-brandRed">
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Budi Hendrawan</h4>
+                                <span class="text-xs text-gray-400 block">Direktur PT Sinergi Mandiri</span>
+                                <span class="inline-flex items-center gap-1 text-[10px] text-green-400 mt-1"><i class="fas fa-check-circle"></i> Terverifikasi Klien Yogi Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 3 -->
+                    <div class="rounded-2xl bg-gray-900/90 border border-gray-800 p-8 flex flex-col justify-between relative hover:border-brandGold/40 transition-all">
+                        <div>
+                            <!-- Stars -->
+                            <div class="flex text-brandGold gap-1 text-sm mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed italic">
+                                "Tim Yogi Dev ramah banget waktu diajak konsultasi. Revisi cepat ditanggapi dan hasil akhirnya melebihi ekspektasi saya. Sukses terus Yogi Dev!"
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6 pt-6 border-t border-gray-800">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Aris P." class="w-12 h-12 rounded-full object-cover border-2 border-brandGold">
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Aris Pratama</h4>
+                                <span class="text-xs text-gray-400 block">Co-Founder Kopi Senja</span>
+                                <span class="inline-flex items-center gap-1 text-[10px] text-green-400 mt-1"><i class="fas fa-check-circle"></i> Terverifikasi Klien Yogi Dev</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PRICING & CONTACT / PAKET HARGA & KONTAK -->
+        <section id="pricing" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-brandGold text-xs font-bold uppercase tracking-widest">Pilihan Hemat & Transparan</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">
+                        Paket Harga <span class="text-brandRed">Pembuatan Website</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm mt-3">Pilih paket sesuai kebutuhan bisnis Anda. Tanpa biaya tersembunyi!</p>
+                </div>
+
+                <!-- Pricing Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <!-- Paket Basic / Landing Page -->
+                    <div class="rounded-2xl bg-gray-900 border border-gray-800 p-8 flex flex-col justify-between hover:border-gray-700 transition-all duration-300">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Basic</span>
+                            <h3 class="text-2xl font-bold text-white mt-1">Landing Page</h3>
+                            <p class="text-xs text-gray-400 mt-2">Cocok untuk promosi produk, event, atau sales page instan.</p>
+
+                            <div class="my-6">
+                                <span class="text-3xl font-extrabold text-white">Rp 499.000</span>
+                                <span class="text-xs text-gray-400">/sekali bayar</span>
+                            </div>
+
+                            <ul class="space-y-3 text-sm text-gray-300 border-t border-gray-800 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> 1 Halaman Desain Premium</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Domain .com / .my.id (1 Thn)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Mobile Responsive 100%</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Integrasi Tombol WhatsApp</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Pengerjaan 1 - 2 Hari</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20tertarik%20Paket%20Landing%20Page" target="_blank" class="mt-8 w-full py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center text-sm transition-colors border border-gray-700">
+                            Pesan Paket Basic
+                        </a>
+                    </div>
+
+                    <!-- Paket UMKM / Recommended (Gold Highlight) -->
+                    <div class="rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 border-2 border-brandGold p-8 flex flex-col justify-between relative shadow-2xl shadow-amber-900/20 scale-105">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-gradient text-gray-950 text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                            Paling Populer
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brandGold">Pro UMKM</span>
+                            <h3 class="text-2xl font-bold text-white mt-1">Website UMKM & Toko</h3>
+                            <p class="text-xs text-gray-400 mt-2">Solusi lengkap bisnis berkembang & katalog produk online.</p>
+
+                            <div class="my-6">
+                                <span class="text-3xl font-extrabold text-brandGold">Rp 999.000</span>
+                                <span class="text-xs text-gray-400">/sekali bayar</span>
+                            </div>
+
+                            <ul class="space-y-3 text-sm text-gray-200 border-t border-gray-700/60 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Hingga 5 Halaman Utama</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Free Domain & High Speed Hosting</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Galeri Produk & Layanan</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Optimasi SEO dasar Google</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandGold text-xs"></i> Pengerjaan 2 - 4 Hari</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20tertarik%20Paket%20Pro%20UMKM" target="_blank" class="mt-8 w-full py-3.5 rounded-xl bg-gold-gradient text-gray-950 font-bold text-center text-sm shadow-lg hover:brightness-110 transition-all">
+                            Pesan Paket UMKM
+                        </a>
+                    </div>
+
+                    <!-- Paket Corporate / Company Profile -->
+                    <div class="rounded-2xl bg-gray-900 border border-gray-800 p-8 flex flex-col justify-between hover:border-gray-700 transition-all duration-300">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-brandRed">Enterprise</span>
+                            <h3 class="text-2xl font-bold text-white mt-1">Company Profile</h3>
+                            <p class="text-xs text-gray-400 mt-2">Untuk perusahaan, instansi, dan bisnis skala besar.</p>
+
+                            <div class="my-6">
+                                <span class="text-3xl font-extrabold text-white">Rp 1.899.000</span>
+                                <span class="text-xs text-gray-400">/sekali bayar</span>
+                            </div>
+
+                            <ul class="space-y-3 text-sm text-gray-300 border-t border-gray-800 pt-6">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandRed text-xs"></i> Multipage (Up to 10 Halaman)</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandRed text-xs"></i> Domain & Hosting Unlimited</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandRed text-xs"></i> Fitur Custom & Integrasi API</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandRed text-xs"></i> Garansi Maintenance 1 Tahun</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-brandRed text-xs"></i> Prioritas Support 24/7</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/6281234567890?text=Halo%20Yogi%20Dev,%20saya%20tertarik%20Paket%20Company%20Profile" target="_blank" class="mt-8 w-full py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center text-sm transition-colors border border-gray-700">
+                            Pesan Paket Custom
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM & WHATSAPP SECTION -->
+                <div class="rounded-3xl bg-gradient-to-r from-gray-900 via-[#131C2E] to-gray-900 border border-gray-800 p-8 sm:p-12 relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <span class="text-brandGold text-xs font-bold uppercase tracking-wider">Mulai Sekarang</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Punya Pertanyaan Atau Ingin Konsultasi Proyek Website?</h3>
+                            <p class="text-gray-400 text-sm mt-3">Hubungi tim Yogi Dev kapan saja. Kami siap memberikan penawaran terbaik dan rekomendasi struktur website sesuai budget Anda.</p>
+
+                            <div class="mt-8 space-y-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-red-950/80 border border-red-800 text-brandRed flex items-center justify-center">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-400">Email Resmi</span>
+                                        <span class="text-sm font-semibold text-white">support@yogidev.com</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-950/80 border border-amber-800 text-brandGold flex items-center justify-center">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs text-gray-400">WhatsApp fast-response</span>
+                                        <span class="text-sm font-semibold text-white">+62 812-3456-7890</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Form -->
+                        <div class="bg-gray-900/90 rounded-2xl p-6 sm:p-8 border border-gray-800 shadow-xl">
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Nama Lengkap</label>
+                                    <input type="text" id="form-name" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-brandGold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Nomor WhatsApp</label>
+                                    <input type="tel" id="form-phone" required placeholder="08123456789" class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-brandGold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Pilihan Jenis Website</label>
+                                    <select id="form-package" class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-brandGold">
+                                        <option value="Landing Page">Landing Page (Rp 499k)</option>
+                                        <option value="Pro UMKM">Website UMKM (Rp 999k)</option>
+                                        <option value="Company Profile">Company Profile (Rp 1.899k)</option>
+                                        <option value="Lainnya">Lainnya / Custom</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Pesan / Catatan Tambahan</label>
+                                    <textarea id="form-message" rows="3" placeholder="Ceritakan kebutuhan website Anda..." class="w-full px-4 py-3 rounded-xl bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-brandGold"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brandRed to-red-700 hover:from-red-600 hover:to-brandRed text-white font-bold text-sm shadow-lg shadow-red-900/30 transition-all flex items-center justify-center gap-2">
+                                    <i class="fab fa-whatsapp text-base"></i>
+                                    <span>Kirim via WhatsApp</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-[#070A0F] border-t border-gray-800/80 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" alt="Yogi Dev Logo" class="w-10 h-10 object-contain" onerror="this.src='https://placehold.co/80x80/1E293B/F59E0B?text=YD'">
+                        <span class="text-xl font-extrabold tracking-wider text-white">YOGI<span class="text-brandGold">DEV</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        Layanan pembuatan website profesional, mudah, praktis, cepat, dan terjangkau untuk mengembangkan bisnis Anda di dunia digital.
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 text-gray-300 hover:text-brandGold hover:bg-gray-700 flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 text-gray-300 hover:text-brandGold hover:bg-gray-700 flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 text-gray-300 hover:text-brandGold hover:bg-gray-700 flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4">Navigasi Halaman</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-brandGold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-brandGold transition-colors">Tentang Kami</a></li>
+                        <li><a href="#advantages" class="hover:text-brandGold transition-colors">Keunggulan</a></li>
+                        <li><a href="#portfolio" class="hover:text-brandGold transition-colors">Portofolio</a></li>
+                        <li><a href="#technology" class="hover:text-brandGold transition-colors">Teknologi</a></li>
+                        <li><a href="#reviews" class="hover:text-brandGold transition-colors">Ulasan</a></li>
+                        <li><a href="#pricing" class="hover:text-brandGold transition-colors">Paket Harga</a></li>
+                    </ul>
+                </div>
+
+                <!-- Layanan Kami -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4">Layanan Kami</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#pricing" class="hover:text-brandGold transition-colors">Landing Page Sales</a></li>
+                        <li><a href="#pricing" class="hover:text-brandGold transition-colors">Website Katalog UMKM</a></li>
+                        <li><a href="#pricing" class="hover:text-brandGold transition-colors">Company Profile</a></li>
+                        <li><a href="#pricing" class="hover:text-brandGold transition-colors">Maintenance Website</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 border-t border-gray-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Yogi Dev. All Rights Reserved.</p>
+                <p>Designed for High Performance & Conversion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // 1. PRELOADER CONTROLLER
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('preloader-hidden');
+            }, 1600); // Smooth fade-out after 1.6s
+        });
+
+        // 2. MOBILE MENU TOGGLE
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 3. HERO CAROUSEL (Text Slideshow & Background Image Slideshow)
+        let currentHeroIndex = 0;
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
+        const heroBgSlides = document.querySelectorAll('.hero-bg-slide');
+
+        function setHeroSlide(index) {
+            currentHeroIndex = index;
+
+            // Update Text Slides
+            heroSlides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    slide.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    slide.classList.remove('opacity-100', 'translate-y-0');
+                    slide.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                }
+            });
+
+            // Update Background Image Slides
+            heroBgSlides.forEach((bgSlide, i) => {
+                if (i === index) {
+                    bgSlide.classList.remove('opacity-0');
+                    bgSlide.classList.add('opacity-100');
+                } else {
+                    bgSlide.classList.remove('opacity-100');
+                    bgSlide.classList.add('opacity-0');
+                }
+            });
+
+            // Update Navigation Dots
+            heroDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('w-2', 'bg-gray-600');
+                    dot.classList.add('w-8', 'bg-brandGold');
+                } else {
+                    dot.classList.remove('w-8', 'bg-brandGold');
+                    dot.classList.add('w-2', 'bg-gray-600');
+                }
+            });
+        }
+
+        // Auto slide hero text & background image every 5s
+        setInterval(() => {
+            currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+            setHeroSlide(currentHeroIndex);
+        }, 5000);
+
+        // 4. TECH IMAGE CAROUSEL CONTROLLER
+        let techIndex = 0;
+        const techSlidesContainer = document.getElementById('tech-slides-container');
+        const totalTechSlides = 3;
+        const techDots = document.querySelectorAll('.tech-dot');
+        const prevTechBtn = document.getElementById('prev-tech-btn');
+        const nextTechBtn = document.getElementById('next-tech-btn');
+
+        function goToTechSlide(index) {
+            techIndex = index;
+            techSlidesContainer.style.transform = `translateX(-${index * 100}%)`;
+            
+            techDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-600');
+                    dot.classList.add('bg-brandGold', 'w-8');
+                } else {
+                    dot.classList.remove('bg-brandGold', 'w-8');
+                    dot.classList.add('bg-gray-600', 'w-3');
+                }
+            });
+        }
+
+        prevTechBtn.addEventListener('click', () => {
+            techIndex = (techIndex - 1 + totalTechSlides) % totalTechSlides;
+            goToTechSlide(techIndex);
+        });
+
+        nextTechBtn.addEventListener('click', () => {
+            techIndex = (techIndex + 1) % totalTechSlides;
+            goToTechSlide(techIndex);
+        });
+
+        // Auto slide image carousel
+        setInterval(() => {
+            techIndex = (techIndex + 1) % totalTechSlides;
+            goToTechSlide(techIndex);
+        }, 4000);
+
+        // 5. CONTACT FORM TO WHATSAPP
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const packageType = document.getElementById('form-package').value;
+            const message = document.getElementById('form-message').value;
+
+            const waText = `Halo Yogi Dev,%0A%0A` +
+                           `Saya ingin berkonsultasi mengenai pembuatan website:%0A` +
+                           `- *Nama*: ${encodeURIComponent(name)}%0A` +
+                           `- *No HP*: ${encodeURIComponent(phone)}%0A` +
+                           `- *Paket*: ${encodeURIComponent(packageType)}%0A` +
+                           `- *Pesan/Kebutuhan*: ${encodeURIComponent(message)}`;
+
+            window.open(`https://wa.me/6281234567890?text=${waText}`, '_blank');
+        }
+    </script>
+</body>
+</html>
