@@ -1054,5 +1054,160 @@
             window.open(`https://wa.me/6283807068538?text=${waText}`, '_blank');
         }
     </script>
+        <!-- REAL-TIME PURCHASE NOTIFICATION POPUP CARD -->
+    <div id="toast-notification" class="fixed bottom-4 left-4 z-50 max-w-sm sm:max-w-md w-full transition-all duration-500 ease-in-out toast-enter pointer-events-auto">
+        <div class="glass-card rounded-2xl p-4 border border-amber-500/30 shadow-2xl shadow-black/80 flex items-start gap-3.5 relative overflow-hidden bg-gradient-to-r from-slate-900 via-brand-card to-slate-900">
+            
+            <!-- Left Accent Light Line -->
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-amber-400 via-red-500 to-amber-500"></div>
+
+            <!-- Avatar / Icon -->
+            <div class="relative flex-shrink-0">
+                <img id="toast-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Buyer Avatar" class="w-11 h-11 rounded-full object-cover border-2 border-amber-400/50">
+                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-[10px] font-black border border-slate-900">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex-1 min-w-0 pr-4">
+                <div class="flex items-center justify-between gap-2">
+                    <span id="toast-buyer-name" class="text-xs font-bold text-white truncate">Budi Santoso</span>
+                    <span id="toast-time" class="text-[10px] text-amber-400/90 font-medium whitespace-nowrap">Baru saja</span>
+                </div>
+                
+                <p class="text-[11px] text-slate-300 mt-0.5 line-clamp-1">
+                    <span id="toast-city" class="text-slate-400">Jakarta</span> • Membeli <span id="toast-package" class="font-semibold text-amber-300">Paket Website UMKM</span>
+                </p>
+
+                <div class="mt-1 flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1 text-[10px] font-black text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded-md">
+                        <i class="fa-solid fa-shield-halved text-[9px]"></i> Terverifikasi
+                    </span>
+                    <span id="toast-price" class="text-xs font-extrabold text-white">Rp 999.000</span>
+                </div>
+            </div>
+
+            <!-- Close Button -->
+            <button onclick="dismissToast()" class="text-slate-400 hover:text-white transition-colors p-1 text-xs rounded-lg hover:bg-slate-800">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const mockPurchases = [
+            {
+                name: "Rian Suhendra",
+                city: "Jakarta Selatan",
+                package: "Paket Website UMKM",
+                price: "Rp 999.000",
+                time: "2 menit yang lalu",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+            },
+            {
+                name: "Siti Rahmawati",
+                city: "Bandung",
+                package: "Paket Toko Online Pro",
+                price: "Rp 1.999.000",
+                time: "5 menit yang lalu",
+                avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
+            },
+            {
+                name: "Ahmad Fauzi",
+                city: "Surabaya",
+                package: "Paket Landing Page Promo",
+                price: "Rp 499.000",
+                time: "Baru saja",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
+            },
+            {
+                name: "CV. Karya Mandiri",
+                city: "Semarang",
+                package: "Paket Website UMKM",
+                price: "Rp 999.000",
+                time: "8 menit yang lalu",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80"
+            },
+            {
+                name: "Dewi Lestari",
+                city: "Yogyakarta",
+                package: "Paket Toko Online Pro",
+                price: "Rp 1.999.000",
+                time: "12 menit yang lalu",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+            },
+            {
+                name: "Hendra Wijaya",
+                city: "Medan",
+                package: "Paket Landing Page Promo",
+                price: "Rp 499.000",
+                time: "1 menit yang lalu",
+                avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&auto=format&fit=crop&q=80"
+            }
+        ];
+
+        let currentIndex = 0;
+        let toastTimeout = null;
+        let isDismissedByUser = false;
+
+        const toastElement = document.getElementById('toast-notification');
+        const buyerNameEl = document.getElementById('toast-buyer-name');
+        const buyerCityEl = document.getElementById('toast-city');
+        const packageEl = document.getElementById('toast-package');
+        const priceEl = document.getElementById('toast-price');
+        const timeEl = document.getElementById('toast-time');
+        const avatarEl = document.getElementById('toast-avatar');
+
+        function updateToastData(data) {
+            buyerNameEl.textContent = data.name;
+            buyerCityEl.textContent = data.city;
+            packageEl.textContent = data.package;
+            priceEl.textContent = data.price;
+            timeEl.textContent = data.time;
+            avatarEl.src = data.avatar;
+        }
+
+        function showToast() {
+            if (isDismissedByUser) return;
+
+            const currentData = mockPurchases[currentIndex];
+            updateToastData(currentData);
+
+            // Trigger Enter Animation
+            toastElement.classList.remove('toast-enter', 'toast-exit');
+            toastElement.classList.add('toast-show');
+
+            // Hide after 5 seconds
+            toastTimeout = setTimeout(() => {
+                hideToast();
+            }, 5000);
+
+            // Prepare next index
+            currentIndex = (currentIndex + 1) % mockPurchases.length;
+        }
+
+        function hideToast() {
+            toastElement.classList.remove('toast-show');
+            toastElement.classList.add('toast-exit');
+        }
+
+        function dismissToast() {
+            isDismissedByUser = true;
+            hideToast();
+        }
+
+        // Loop Popups: Initial pop-up after 3.5 seconds, then repeats every 10 seconds
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showToast();
+                setInterval(() => {
+                    if (!isDismissedByUser) {
+                        showToast();
+                    }
+                }, 10000);
+            }, 3500);
+        });
+    </script>
 </body>
 </html>
