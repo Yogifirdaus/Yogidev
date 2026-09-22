@@ -1090,8 +1090,8 @@
 
             <!-- Close Button -->
             <button onclick="dismissToast()" class="text-slate-400 hover:text-white transition-colors p-1 text-xs rounded-lg hover:bg-slate-800">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+    <i class="fa-solid fa-xmark"></i>
+</button>
         </div>
     </div>
 
@@ -1187,15 +1187,17 @@
             currentIndex = (currentIndex + 1) % mockPurchases.length;
         }
 
-        function hideToast() {
-            toastElement.classList.remove('toast-show');
-            toastElement.classList.add('toast-exit');
-        }
+        // Fungsi untuk menghilangkan popup dengan animasi exit
+function hideToast() {
+    toastElement.classList.remove('toast-show');
+    toastElement.classList.add('toast-exit');
+}
 
-        function dismissToast() {
-            isDismissedByUser = true;
-            hideToast();
-        }
+// Fungsi yang dipanggil saat pengguna menekan tombol (X)
+function dismissToast() {
+    isDismissedByUser = true; // Mencegah popup muncul kembali secara otomatis
+    hideToast();
+}
 
         // Loop Popups: Initial pop-up after 3.5 seconds, then repeats every 10 seconds
         window.addEventListener('load', () => {
