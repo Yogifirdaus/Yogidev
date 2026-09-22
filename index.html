@@ -923,138 +923,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT CODE -->
-    <script>
-        // 1. PRELOADER CONTROLLER
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.classList.add('preloader-hidden');
-            }, 1600); // Smooth fade-out after 1.6s
-        });
-
-        // 2. MOBILE MENU TOGGLE
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // 3. HERO CAROUSEL (Text Slideshow & Background Image Slideshow)
-        let currentHeroIndex = 0;
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        const heroDots = document.querySelectorAll('.hero-dot');
-        const heroBgSlides = document.querySelectorAll('.hero-bg-slide');
-
-        function setHeroSlide(index) {
-            currentHeroIndex = index;
-
-            // Update Text Slides
-            heroSlides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                    slide.classList.add('opacity-100', 'translate-y-0');
-                } else {
-                    slide.classList.remove('opacity-100', 'translate-y-0');
-                    slide.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                }
-            });
-
-            // Update Background Image Slides
-            heroBgSlides.forEach((bgSlide, i) => {
-                if (i === index) {
-                    bgSlide.classList.remove('opacity-0');
-                    bgSlide.classList.add('opacity-100');
-                } else {
-                    bgSlide.classList.remove('opacity-100');
-                    bgSlide.classList.add('opacity-0');
-                }
-            });
-
-            // Update Navigation Dots
-            heroDots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('w-2', 'bg-gray-600');
-                    dot.classList.add('w-8', 'bg-brandGold');
-                } else {
-                    dot.classList.remove('w-8', 'bg-brandGold');
-                    dot.classList.add('w-2', 'bg-gray-600');
-                }
-            });
-        }
-
-        // Auto slide hero text & background image every 5s
-        setInterval(() => {
-            currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
-            setHeroSlide(currentHeroIndex);
-        }, 5000);
-
-        // 4. TECH IMAGE CAROUSEL CONTROLLER
-        let techIndex = 0;
-        const techSlidesContainer = document.getElementById('tech-slides-container');
-        const totalTechSlides = 3;
-        const techDots = document.querySelectorAll('.tech-dot');
-        const prevTechBtn = document.getElementById('prev-tech-btn');
-        const nextTechBtn = document.getElementById('next-tech-btn');
-
-        function goToTechSlide(index) {
-            techIndex = index;
-            techSlidesContainer.style.transform = `translateX(-${index * 100}%)`;
-            
-            techDots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('bg-gray-600');
-                    dot.classList.add('bg-brandGold', 'w-8');
-                } else {
-                    dot.classList.remove('bg-brandGold', 'w-8');
-                    dot.classList.add('bg-gray-600', 'w-3');
-                }
-            });
-        }
-
-        prevTechBtn.addEventListener('click', () => {
-            techIndex = (techIndex - 1 + totalTechSlides) % totalTechSlides;
-            goToTechSlide(techIndex);
-        });
-
-        nextTechBtn.addEventListener('click', () => {
-            techIndex = (techIndex + 1) % totalTechSlides;
-            goToTechSlide(techIndex);
-        });
-
-        // Auto slide image carousel
-        setInterval(() => {
-            techIndex = (techIndex + 1) % totalTechSlides;
-            goToTechSlide(techIndex);
-        }, 4000);
-
-        // 5. CONTACT FORM TO WHATSAPP
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('form-name').value;
-            const phone = document.getElementById('form-phone').value;
-            const packageType = document.getElementById('form-package').value;
-            const message = document.getElementById('form-message').value;
-
-            const waText = `Halo Yogi Dev,%0A%0A` +
-                           `Saya ingin berkonsultasi mengenai pembuatan website:%0A` +
-                           `- *Nama*: ${encodeURIComponent(name)}%0A` +
-                           `- *No HP*: ${encodeURIComponent(phone)}%0A` +
-                           `- *Paket*: ${encodeURIComponent(packageType)}%0A` +
-                           `- *Pesan/Kebutuhan*: ${encodeURIComponent(message)}`;
-
-            window.open(`https://wa.me/6283807068538?text=${waText}`, '_blank');
-        }
-    </script>
-        <!-- REAL-TIME PURCHASE NOTIFICATION POPUP CARD -->
+    <!-- REAL-TIME PURCHASE NOTIFICATION POPUP CARD -->
     <div id="toast-notification" class="fixed bottom-4 left-4 z-50 max-w-sm sm:max-w-md w-full transition-all duration-500 ease-in-out toast-enter pointer-events-auto">
         <div class="glass-card rounded-2xl p-4 border border-amber-500/30 shadow-2xl shadow-black/80 flex items-start gap-3.5 relative overflow-hidden bg-gradient-to-r from-slate-900 via-brand-card to-slate-900">
             
@@ -1090,8 +959,8 @@
 
             <!-- Close Button -->
             <button onclick="dismissToast()" class="text-slate-400 hover:text-white transition-colors p-1 text-xs rounded-lg hover:bg-slate-800">
-    <i class="fa-solid fa-xmark"></i>
-</button>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
     </div>
 
@@ -1187,17 +1056,15 @@
             currentIndex = (currentIndex + 1) % mockPurchases.length;
         }
 
-        // Fungsi untuk menghilangkan popup dengan animasi exit
-function hideToast() {
-    toastElement.classList.remove('toast-show');
-    toastElement.classList.add('toast-exit');
-}
+        function hideToast() {
+            toastElement.classList.remove('toast-show');
+            toastElement.classList.add('toast-exit');
+        }
 
-// Fungsi yang dipanggil saat pengguna menekan tombol (X)
-function dismissToast() {
-    isDismissedByUser = true; // Mencegah popup muncul kembali secara otomatis
-    hideToast();
-}
+        function dismissToast() {
+            isDismissedByUser = true;
+            hideToast();
+        }
 
         // Loop Popups: Initial pop-up after 3.5 seconds, then repeats every 10 seconds
         window.addEventListener('load', () => {
