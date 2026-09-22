@@ -985,8 +985,8 @@
             {
                 name: "Ahmad Fauzi",
                 city: "Surabaya",
-                package: "Paket Landing Page Promo",
-                price: "Rp 499.000",
+                package: "Paket Murah Banget",
+                price: "Rp 150.000",
                 time: "Baru saja",
                 avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
             },
@@ -1009,8 +1009,8 @@
             {
                 name: "Hendra Wijaya",
                 city: "Medan",
-                package: "Paket Landing Page Promo",
-                price: "Rp 499.000",
+                package: "Paket Murah Banget",
+                price: "Rp 150.000",
                 time: "1 menit yang lalu",
                 avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&auto=format&fit=crop&q=80"
             }
@@ -1047,10 +1047,10 @@
             toastElement.classList.remove('toast-enter', 'toast-exit');
             toastElement.classList.add('toast-show');
 
-            // Hide after 5 seconds
+            // Hide after 3 seconds
             toastTimeout = setTimeout(() => {
                 hideToast();
-            }, 5000);
+            }, 3000);
 
             // Prepare next index
             currentIndex = (currentIndex + 1) % mockPurchases.length;
@@ -1066,7 +1066,7 @@
             hideToast();
         }
 
-        // Loop Popups: Initial pop-up after 3.5 seconds, then repeats every 10 seconds
+        // Loop Popups: Initial pop-up after 3.5 seconds, then repeats every 5 seconds
         window.addEventListener('load', () => {
             setTimeout(() => {
                 showToast();
@@ -1074,7 +1074,7 @@
                     if (!isDismissedByUser) {
                         showToast();
                     }
-                }, 10000);
+                }, 5000);
             }, 3500);
         });
     </script>
